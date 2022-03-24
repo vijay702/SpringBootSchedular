@@ -21,12 +21,13 @@ public class UserService {
 	private UserRepository userRepository;
 	
 	@Scheduled(fixedRateString = "PT15S")
-	public void saveUser() {
+	public void saveUser() throws InterruptedException {
 		
 		User user = new User();
 		user.setName("user" + new Random().nextInt(3744483));
 		userRepository.save(user);
 		System.out.println("saving user " + new Date().toString());
+		Thread.sleep(8000);
 		
 		
 	}
