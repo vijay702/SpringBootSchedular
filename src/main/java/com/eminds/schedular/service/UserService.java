@@ -20,7 +20,7 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepository;
 	
-	@Scheduled(fixedRate = 5000)
+	@Scheduled(fixedRateString = "PT15S")
 	public void saveUser() {
 		
 		User user = new User();
@@ -31,7 +31,7 @@ public class UserService {
 		
 	}
 	
-	@Scheduled(fixedRateString = "PT24H" )
+	@Scheduled(fixedRateString = "PT1M" )
 	public void fetchUser() {
 		
 		List<User> users = userRepository.findAll();
